@@ -1,0 +1,103 @@
+/* Estilos del sitio de documentación (no forman parte del sistema). */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { margin: 0; background: var(--pr-fondo); color: var(--pr-texto); font: 15px/1.6 var(--pr-fuente); display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+code { font: 13px var(--pr-mono); background: var(--pr-superficie-2); padding: 2px 6px; border-radius: 5px; }
+a { color: var(--pr-primario); }
+
+.lateral { position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 22px 18px; border-right: 1px solid var(--pr-borde); background: var(--pr-superficie); }
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; text-decoration: none; color: var(--pr-texto); margin-bottom: 28px; }
+.marca small { font: 12px var(--pr-mono); color: var(--pr-texto-2); font-weight: 400; }
+.prisma-logo { width: 28px; height: 28px; border-radius: 8px; background: conic-gradient(from 200deg, var(--pr-acento-300), var(--pr-acento-600), var(--pr-acento-900), var(--pr-acento-300)); clip-path: polygon(50% 0, 100% 88%, 0 88%); }
+.lateral nav { display: grid; gap: 2px; }
+.lateral nav p { margin: 18px 0 6px; font: 500 11px var(--pr-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--pr-texto-2); }
+.lateral nav a { color: var(--pr-texto-2); text-decoration: none; padding: 7px 10px; border-radius: var(--pr-radio); font-size: 14px; }
+.lateral nav a:hover { background: var(--pr-superficie-2); color: var(--pr-texto); }
+.lateral nav a.activo { background: color-mix(in oklch, var(--pr-primario) 12%, transparent); color: var(--pr-primario); font-weight: 500; }
+
+.contenido { min-width: 0; }
+.barra { position: sticky; top: 0; z-index: 10; display: flex; justify-content: flex-end; align-items: center; gap: 16px; padding: 12px clamp(16px, 4vw, 48px); background: color-mix(in oklch, var(--pr-fondo) 85%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--pr-borde); }
+.menu { display: none; margin-right: auto; }
+.controles { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+.control { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--pr-texto-2); }
+.control input[type="range"] { width: 110px; accent-color: var(--pr-primario); }
+#tono { background: linear-gradient(90deg, oklch(.6 .17 0), oklch(.6 .17 60), oklch(.6 .17 120), oklch(.6 .17 180), oklch(.6 .17 240), oklch(.6 .17 300), oklch(.6 .17 360)); height: 6px; border-radius: 3px; appearance: none; }
+#tono::-webkit-slider-thumb { appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 2px solid var(--pr-primario); cursor: pointer; }
+#tono::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 2px solid var(--pr-primario); cursor: pointer; }
+.control output { font: 12px var(--pr-mono); min-width: 4ch; color: var(--pr-texto); }
+
+main { padding: 0 clamp(16px, 4vw, 48px) 40px; max-width: 1080px; }
+.intro { padding: 56px 0 32px; }
+.etiqueta { font: 500 12px var(--pr-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--pr-primario); margin: 0 0 12px; }
+h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 18px; font-weight: 700; }
+.degradado { background: linear-gradient(90deg, var(--pr-acento-500), var(--pr-acento-800)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+[data-tema="oscuro"] .degradado { background-image: linear-gradient(90deg, var(--pr-acento-300), var(--pr-acento-500)); }
+.lead { font-size: 17px; color: var(--pr-texto-2); max-width: 62ch; }
+.lead em { font-style: normal; color: var(--pr-texto); font-weight: 600; }
+.intro-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; }
+.mini { display: grid; gap: 6px; align-content: start; }
+.mini strong { font-size: 22px; letter-spacing: -0.02em; }
+.mini small { color: var(--pr-texto-2); }
+.pr-switch-falso { width: 38px; height: 22px; border-radius: 999px; background: var(--pr-primario); position: relative; }
+.pr-switch-falso i { position: absolute; right: 3px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+.barras { display: flex; align-items: end; gap: 6px; height: 40px; }
+.barras i { width: 14px; height: var(--h); border-radius: 4px 4px 0 0; background: var(--pr-acento-300); }
+.barras i:last-child { background: var(--pr-primario); }
+
+.doc { padding: 48px 0 8px; border-top: 1px solid var(--pr-borde); }
+.doc h2 { font-size: 28px; letter-spacing: -0.025em; margin: 0 0 8px; }
+.doc h3 { font-size: 15px; margin: 28px 0 12px; }
+.doc > p { color: var(--pr-texto-2); max-width: 66ch; margin: 0 0 20px; }
+
+.escala { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+.muestra { border-radius: calc(var(--pr-radio) * .8); overflow: hidden; border: 1px solid var(--pr-borde); background: var(--pr-superficie); cursor: pointer; text-align: left; padding: 0; font: inherit; color: inherit; }
+.muestra:focus-visible { outline: 2px solid var(--pr-anillo); outline-offset: 2px; }
+.muestra .color { height: 64px; display: grid; place-items: center; font: 600 12px var(--pr-mono); }
+.muestra .datos { padding: 7px 8px; font: 11px/1.5 var(--pr-mono); color: var(--pr-texto-2); }
+.muestra .datos b { color: var(--pr-texto); font-weight: 500; }
+.semanticos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.semanticos .muestra .color { height: 52px; }
+
+.tipos { display: grid; gap: 4px; }
+.tipo { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed var(--pr-borde); }
+.tipo code { background: none; padding: 0; color: var(--pr-texto-2); font-size: 12px; }
+.tipo span { letter-spacing: -0.02em; line-height: 1.15; overflow-wrap: anywhere; }
+
+.espacios { display: grid; gap: 8px; margin-bottom: 24px; }
+.espacio { display: grid; grid-template-columns: 70px 50px 1fr; align-items: center; gap: 12px; font: 12px var(--pr-mono); color: var(--pr-texto-2); }
+.espacio i { height: 14px; background: var(--pr-acento-200); border-left: 2px solid var(--pr-primario); border-radius: 0 3px 3px 0; }
+.radios { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.radios div { height: 80px; background: var(--pr-superficie); border: 1.5px solid var(--pr-primario); display: grid; place-items: center; }
+
+.demo { position: relative; background: var(--pr-superficie); border: 1px solid var(--pr-borde); border-radius: calc(var(--pr-radio) * 1.4); padding: 24px; display: grid; gap: 16px; }
+.copiar { position: absolute; top: 10px; right: 10px; }
+.demo:has(.copiar) { padding-top: 56px; }
+.fila { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.fila.derecha { justify-content: flex-end; }
+.fila.columnas { align-items: flex-start; gap: 32px; }
+.pila { display: grid; gap: 10px; }
+.formulario { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 640px; }
+.formulario .pr-campo:nth-child(4), .formulario .pr-btn { grid-column: 1 / -1; }
+.formulario .pr-btn { justify-self: start; }
+.opcional { color: var(--pr-texto-2); font-weight: 400; }
+.grupo { border: 0; padding: 0; margin: 0; display: grid; gap: 4px; min-width: 180px; }
+.grupo legend { font: 500 12px var(--pr-mono); color: var(--pr-texto-2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+
+.pie { padding: 32px clamp(16px, 4vw, 48px); border-top: 1px solid var(--pr-borde); color: var(--pr-texto-2); font-size: 13px; }
+
+@media (max-width: 960px) {
+  body { grid-template-columns: 1fr; }
+  .lateral { position: fixed; inset: 0 auto 0 0; width: 270px; z-index: 30; transform: translateX(-100%); transition: transform .25s; box-shadow: var(--pr-sombra); }
+  .lateral.abierta { transform: none; }
+  .menu { display: inline-flex; }
+  .escala { grid-template-columns: repeat(5, 1fr); }
+  .intro-demo, .semanticos { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .controles .control:nth-child(2) { display: none; }
+  .control input[type="range"] { width: 80px; }
+  .formulario, .radios { grid-template-columns: 1fr 1fr; }
+  .formulario .pr-campo { grid-column: 1 / -1; }
+  .intro-demo { grid-template-columns: 1fr; }
+  .tipo { grid-template-columns: 1fr; gap: 2px; }
+}

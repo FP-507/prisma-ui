@@ -1,0 +1,208 @@
+/* =========================================================
+   Prisma UI · tokens y componentes
+   Los colores se generan en OKLCH a partir de --pr-tono.
+   ========================================================= */
+:root {
+  --pr-tono: 264;
+  --pr-radio: 10px;
+  --pr-fuente: "Geist", system-ui, sans-serif;
+  --pr-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Escala de acento (luminosidad fija, el tono varía) */
+  --pr-acento-50:  oklch(0.97 0.02 var(--pr-tono));
+  --pr-acento-100: oklch(0.93 0.04 var(--pr-tono));
+  --pr-acento-200: oklch(0.87 0.08 var(--pr-tono));
+  --pr-acento-300: oklch(0.79 0.12 var(--pr-tono));
+  --pr-acento-400: oklch(0.70 0.15 var(--pr-tono));
+  --pr-acento-500: oklch(0.61 0.17 var(--pr-tono));
+  --pr-acento-600: oklch(0.53 0.17 var(--pr-tono));
+  --pr-acento-700: oklch(0.45 0.15 var(--pr-tono));
+  --pr-acento-800: oklch(0.37 0.12 var(--pr-tono));
+  --pr-acento-900: oklch(0.29 0.09 var(--pr-tono));
+
+  /* Neutros con un toque del tono para que armonicen */
+  --pr-neutro-50:  oklch(0.985 0.003 var(--pr-tono));
+  --pr-neutro-100: oklch(0.96 0.005 var(--pr-tono));
+  --pr-neutro-200: oklch(0.92 0.007 var(--pr-tono));
+  --pr-neutro-300: oklch(0.86 0.009 var(--pr-tono));
+  --pr-neutro-400: oklch(0.72 0.012 var(--pr-tono));
+  --pr-neutro-500: oklch(0.58 0.014 var(--pr-tono));
+  --pr-neutro-600: oklch(0.47 0.014 var(--pr-tono));
+  --pr-neutro-700: oklch(0.37 0.013 var(--pr-tono));
+  --pr-neutro-800: oklch(0.26 0.011 var(--pr-tono));
+  --pr-neutro-900: oklch(0.18 0.009 var(--pr-tono));
+
+  --pr-exito: oklch(0.52 0.13 150);
+  --pr-aviso: oklch(0.62 0.14 70);
+  --pr-error: oklch(0.55 0.19 27);
+  --pr-info: var(--pr-acento-600);
+
+  /* Roles (tema claro) */
+  --pr-fondo: var(--pr-neutro-50);
+  --pr-superficie: #fff;
+  --pr-superficie-2: var(--pr-neutro-100);
+  --pr-borde: var(--pr-neutro-200);
+  --pr-borde-fuerte: var(--pr-neutro-300);
+  --pr-texto: var(--pr-neutro-900);
+  --pr-texto-2: var(--pr-neutro-600);
+  --pr-primario: var(--pr-acento-600);
+  --pr-primario-hover: var(--pr-acento-700);
+  --pr-sobre-primario: #fff;
+  --pr-anillo: var(--pr-acento-400);
+  --pr-sombra: 0 1px 2px oklch(0 0 0 / .06), 0 8px 24px -12px oklch(0 0 0 / .18);
+  color-scheme: light;
+}
+
+[data-tema="oscuro"] {
+  --pr-fondo: var(--pr-neutro-900);
+  --pr-superficie: oklch(0.22 0.01 var(--pr-tono));
+  --pr-superficie-2: var(--pr-neutro-800);
+  --pr-borde: oklch(0.32 0.012 var(--pr-tono));
+  --pr-borde-fuerte: oklch(0.42 0.013 var(--pr-tono));
+  --pr-texto: var(--pr-neutro-50);
+  --pr-texto-2: var(--pr-neutro-400);
+  --pr-primario: var(--pr-acento-400);
+  --pr-primario-hover: var(--pr-acento-300);
+  --pr-sobre-primario: var(--pr-neutro-900);
+  --pr-anillo: var(--pr-acento-300);
+  --pr-exito: oklch(0.72 0.14 150);
+  --pr-aviso: oklch(0.80 0.13 80);
+  --pr-error: oklch(0.70 0.17 25);
+  --pr-info: var(--pr-acento-300);
+  --pr-sombra: 0 1px 2px oklch(0 0 0 / .5), 0 10px 30px -12px oklch(0 0 0 / .7);
+  color-scheme: dark;
+}
+
+/* ---------- Botones ---------- */
+.pr-btn {
+  --alto: 40px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: var(--alto); padding: 0 16px; border-radius: var(--pr-radio);
+  font: 500 14px var(--pr-fuente); cursor: pointer; white-space: nowrap;
+  background: var(--pr-primario); color: var(--pr-sobre-primario); border: 1px solid transparent;
+  transition: background .15s, box-shadow .15s, transform .1s;
+}
+.pr-btn:hover { background: var(--pr-primario-hover); }
+.pr-btn:active { transform: translateY(1px); }
+.pr-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--pr-fondo), 0 0 0 4px var(--pr-anillo); }
+.pr-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.pr-btn--secundario { background: var(--pr-superficie); color: var(--pr-texto); border-color: var(--pr-borde-fuerte); }
+.pr-btn--secundario:hover { background: var(--pr-superficie-2); }
+.pr-btn--fantasma { background: transparent; color: var(--pr-texto); }
+.pr-btn--fantasma:hover { background: var(--pr-superficie-2); }
+.pr-btn--peligro { background: var(--pr-error); color: #fff; }
+.pr-btn--peligro:hover { background: color-mix(in oklch, var(--pr-error) 85%, black); }
+.pr-btn--sm { --alto: 32px; padding: 0 12px; font-size: 13px; }
+.pr-btn--lg { --alto: 48px; padding: 0 22px; font-size: 15px; }
+
+.pr-spinner { width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: pr-girar .7s linear infinite; }
+@keyframes pr-girar { to { transform: rotate(360deg); } }
+
+/* ---------- Campos ---------- */
+.pr-campo { display: grid; gap: 6px; }
+.pr-campo label { font-size: 14px; font-weight: 500; color: var(--pr-texto); }
+.pr-input {
+  width: 100%; min-height: 40px; padding: 9px 12px; border-radius: var(--pr-radio);
+  border: 1px solid var(--pr-borde-fuerte); background: var(--pr-superficie); color: var(--pr-texto);
+  font: 14px var(--pr-fuente); transition: border-color .15s, box-shadow .15s;
+}
+.pr-input:hover { border-color: var(--pr-neutro-400); }
+.pr-input:focus { outline: none; border-color: var(--pr-primario); box-shadow: 0 0 0 3px color-mix(in oklch, var(--pr-anillo) 35%, transparent); }
+.pr-input[aria-invalid="true"] { border-color: var(--pr-error); }
+.pr-input[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px color-mix(in oklch, var(--pr-error) 25%, transparent); }
+.pr-ayuda { margin: 0; font-size: 13px; color: var(--pr-texto-2); }
+.pr-ayuda.error { color: var(--pr-error); }
+.pr-ayuda.ok { color: var(--pr-exito); }
+
+/* ---------- Selección ---------- */
+.pr-check, .pr-radio, .pr-switch { display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; padding: 4px 0; }
+.pr-check input, .pr-radio input {
+  appearance: none; width: 18px; height: 18px; margin: 0; flex: none; display: grid; place-items: center;
+  border: 1.5px solid var(--pr-borde-fuerte); background: var(--pr-superficie); cursor: pointer; transition: all .15s;
+}
+.pr-check input { border-radius: calc(var(--pr-radio) * .4); }
+.pr-radio input { border-radius: 50%; }
+.pr-check input:checked { background: var(--pr-primario); border-color: var(--pr-primario); }
+.pr-check input:checked::after { content: ""; width: 9px; height: 5px; border: 2px solid var(--pr-sobre-primario); border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px, -1px); }
+.pr-radio input:checked { border: 5px solid var(--pr-primario); }
+.pr-switch input {
+  appearance: none; width: 38px; height: 22px; margin: 0; flex: none; border-radius: 999px; position: relative; cursor: pointer;
+  background: var(--pr-borde-fuerte); transition: background .2s;
+}
+.pr-switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px oklch(0 0 0 / .3); transition: transform .2s; }
+.pr-switch input:checked { background: var(--pr-primario); }
+.pr-switch input:checked::after { transform: translateX(16px); }
+.pr-check input:focus-visible, .pr-radio input:focus-visible, .pr-switch input:focus-visible { outline: 2px solid var(--pr-anillo); outline-offset: 2px; }
+.pr-check input:disabled, .pr-check input:disabled + span { opacity: .45; cursor: not-allowed; }
+
+/* ---------- Alertas e insignias ---------- */
+.pr-alerta {
+  --c: var(--pr-info);
+  display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: var(--pr-radio);
+  border: 1px solid color-mix(in oklch, var(--c) 35%, transparent);
+  background: color-mix(in oklch, var(--c) 9%, var(--pr-superficie)); color: var(--pr-texto); font-size: 14px;
+}
+.pr-alerta svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 1px; }
+.pr-alerta--exito { --c: var(--pr-exito); }
+.pr-alerta--aviso { --c: var(--pr-aviso); }
+.pr-alerta--error { --c: var(--pr-error); }
+
+.pr-insignia {
+  --c: var(--pr-texto-2);
+  display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 9px; border-radius: 999px;
+  font: 500 12px var(--pr-fuente); color: color-mix(in oklch, var(--c) 85%, var(--pr-texto));
+  background: color-mix(in oklch, var(--c) 14%, transparent); white-space: nowrap;
+}
+.pr-insignia--acento { --c: var(--pr-primario); }
+.pr-insignia--exito { --c: var(--pr-exito); }
+.pr-insignia--aviso { --c: var(--pr-aviso); }
+.pr-insignia--error { --c: var(--pr-error); }
+
+/* ---------- Tarjeta ---------- */
+.pr-tarjeta { background: var(--pr-superficie); border: 1px solid var(--pr-borde); border-radius: calc(var(--pr-radio) * 1.6); box-shadow: var(--pr-sombra); padding: 18px; }
+
+/* ---------- Pestañas ---------- */
+.pr-pestanas { display: flex; gap: 4px; border-bottom: 1px solid var(--pr-borde); }
+.pr-pestanas button {
+  font: 500 14px var(--pr-fuente); color: var(--pr-texto-2); background: none; border: 0; cursor: pointer;
+  padding: 10px 14px; margin-bottom: -1px; border-bottom: 2px solid transparent;
+}
+.pr-pestanas button:hover { color: var(--pr-texto); }
+.pr-pestanas button[aria-selected="true"] { color: var(--pr-texto); border-bottom-color: var(--pr-primario); }
+.pr-pestanas button:focus-visible { outline: 2px solid var(--pr-anillo); outline-offset: -2px; border-radius: 6px; }
+.pr-panel { padding: 16px 2px; font-size: 14px; }
+.pr-panel:focus-visible { outline: 2px solid var(--pr-anillo); border-radius: 6px; }
+
+/* ---------- Segmentado ---------- */
+.pr-segmentado { display: inline-flex; padding: 3px; gap: 2px; border-radius: calc(var(--pr-radio) + 3px); background: var(--pr-superficie-2); border: 1px solid var(--pr-borde); }
+.pr-segmentado button { font: 500 13px var(--pr-fuente); border: 0; background: transparent; color: var(--pr-texto-2); padding: 6px 12px; border-radius: var(--pr-radio); cursor: pointer; }
+.pr-segmentado button[aria-checked="true"] { background: var(--pr-superficie); color: var(--pr-texto); box-shadow: var(--pr-sombra); }
+.pr-segmentado button:focus-visible { outline: 2px solid var(--pr-anillo); }
+
+/* ---------- Diálogo ---------- */
+.pr-dialogo { border: 1px solid var(--pr-borde); border-radius: calc(var(--pr-radio) * 1.6); background: var(--pr-superficie); color: var(--pr-texto); padding: 24px; width: min(440px, calc(100vw - 32px)); box-shadow: 0 30px 80px -20px oklch(0 0 0 / .45); }
+.pr-dialogo::backdrop { background: oklch(0.2 0.02 var(--pr-tono) / .45); backdrop-filter: blur(2px); }
+.pr-dialogo[open] { animation: pr-entrar .18s ease; }
+.pr-dialogo h3 { margin: 0 0 8px; font-size: 18px; }
+.pr-dialogo p { margin: 0 0 20px; color: var(--pr-texto-2); font-size: 14px; }
+@keyframes pr-entrar { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+
+/* ---------- Tabla ---------- */
+.pr-tabla-envoltura { overflow-x: auto; border: 1px solid var(--pr-borde); border-radius: calc(var(--pr-radio) * 1.2); }
+.pr-tabla { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.pr-tabla th, .pr-tabla td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--pr-borde); white-space: nowrap; }
+.pr-tabla tbody tr:last-child td { border-bottom: 0; }
+.pr-tabla tbody tr:hover { background: var(--pr-superficie-2); }
+.pr-tabla th { background: var(--pr-superficie-2); font-weight: 500; color: var(--pr-texto-2); font-size: 13px; }
+.pr-tabla th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+.pr-tabla th button:focus-visible { outline: 2px solid var(--pr-anillo); border-radius: 4px; }
+.pr-tabla th button::after { content: "↕"; opacity: .4; font-size: 11px; }
+.pr-tabla th[aria-sort="ascending"] button::after { content: "↑"; opacity: 1; }
+.pr-tabla th[aria-sort="descending"] button::after { content: "↓"; opacity: 1; }
+.pr-tabla .num { text-align: right; }
+
+/* ---------- Toast ---------- */
+.pr-toast { position: fixed; bottom: 20px; right: 20px; background: var(--pr-texto); color: var(--pr-fondo); padding: 10px 16px; border-radius: var(--pr-radio); font: 500 14px var(--pr-fuente); box-shadow: var(--pr-sombra); opacity: 0; transform: translateY(10px); transition: all .2s; pointer-events: none; z-index: 50; }
+.pr-toast.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) { .pr-btn, .pr-switch input::after, .pr-toast { transition: none; } .pr-dialogo[open] { animation: none; } }

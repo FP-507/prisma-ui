@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prisma UI · Sistema de diseño</title>
+  <meta name="description" content="Sistema de diseño con tokens en OKLCH, contraste WCAG calculado en vivo y componentes accesibles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="prisma.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <aside class="lateral" id="lateral" aria-label="Navegación de la documentación">
+    <a class="marca" href="#inicio"><span class="prisma-logo" aria-hidden="true"></span>Prisma <small>UI 1.0</small></a>
+    <nav>
+      <p>Fundamentos</p>
+      <a href="#color">Color</a>
+      <a href="#tipografia">Tipografía</a>
+      <a href="#espaciado">Espaciado y radios</a>
+      <p>Componentes</p>
+      <a href="#botones">Botones</a>
+      <a href="#campos">Campos de formulario</a>
+      <a href="#seleccion">Selección</a>
+      <a href="#retro">Alertas e insignias</a>
+      <a href="#navegacion">Pestañas y diálogo</a>
+      <a href="#datos">Tabla de datos</a>
+    </nav>
+  </aside>
+
+  <div class="contenido">
+    <header class="barra">
+      <button class="pr-btn pr-btn--fantasma menu" id="menu" aria-expanded="false" aria-controls="lateral">Menú</button>
+      <div class="controles" role="group" aria-label="Personalizar el tema">
+        <label class="control">Tono <input type="range" id="tono" min="0" max="360" value="264" aria-describedby="tono-valor"><output id="tono-valor">264°</output></label>
+        <label class="control">Radio <input type="range" id="radio" min="0" max="20" value="10"><output id="radio-valor">10px</output></label>
+        <div class="pr-segmentado" role="radiogroup" aria-label="Tema">
+          <button role="radio" aria-checked="true" data-tema="claro">Claro</button>
+          <button role="radio" aria-checked="false" data-tema="oscuro">Oscuro</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" id="inicio">
+        <p class="etiqueta">Sistema de diseño</p>
+        <h1>Componentes coherentes, <span class="degradado">accesibles por defecto.</span></h1>
+        <p class="lead">Prisma define los colores en <strong>OKLCH</strong>, un espacio perceptual: cambiar el tono mantiene la misma luminosidad y el mismo contraste. Mueve el control de <em>Tono</em> y todo el sistema se adapta; los contrastes WCAG se recalculan en vivo.</p>
+        <div class="intro-demo" aria-hidden="true">
+          <div class="pr-tarjeta mini"><span class="pr-insignia pr-insignia--exito">Pagado</span><strong>$1 240,00</strong><small>Factura #0042</small></div>
+          <div class="pr-tarjeta mini"><div class="pr-switch-falso"><i></i></div><strong>Notificaciones</strong><small>Activadas</small></div>
+          <div class="pr-tarjeta mini"><div class="barras"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i></div><strong>+18 %</strong><small>vs. mes anterior</small></div>
+        </div>
+      </section>
+
+      <section id="color" class="doc">
+        <h2>Color</h2>
+        <p>Escalas de 10 pasos generadas a partir de un tono. Cada muestra indica su contraste contra blanco y negro, y el nivel WCAG que cumple para texto normal.</p>
+        <h3>Acento</h3>
+        <div class="escala" id="escala-acento"></div>
+        <h3>Neutro</h3>
+        <div class="escala" id="escala-neutro"></div>
+        <h3>Semánticos</h3>
+        <div class="semanticos" id="semanticos"></div>
+      </section>
+
+      <section id="tipografia" class="doc">
+        <h2>Tipografía</h2>
+        <p>Escala modular con razón 1,25 (tercera mayor). Geist para interfaz y Geist Mono para código y datos.</p>
+        <div class="tipos" id="tipos"></div>
+      </section>
+
+      <section id="espaciado" class="doc">
+        <h2>Espaciado y radios</h2>
+        <p>Base de 4 px. Los radios derivan de un único token, <code>--pr-radio</code>, que puedes cambiar arriba.</p>
+        <div class="espacios" id="espacios"></div>
+        <div class="radios">
+          <div style="border-radius:calc(var(--pr-radio) * .5)"><code>sm</code></div>
+          <div style="border-radius:var(--pr-radio)"><code>md</code></div>
+          <div style="border-radius:calc(var(--pr-radio) * 1.6)"><code>lg</code></div>
+          <div style="border-radius:999px"><code>full</code></div>
+        </div>
+      </section>
+
+      <section id="botones" class="doc">
+        <h2>Botones</h2>
+        <p>Cuatro variantes y tres tamaños. Estados de foco visibles, deshabilitado y carga.</p>
+        <div class="demo" data-codigo='&lt;button class="pr-btn"&gt;Guardar&lt;/button&gt;
+&lt;button class="pr-btn pr-btn--secundario"&gt;Cancelar&lt;/button&gt;
+&lt;button class="pr-btn pr-btn--fantasma"&gt;Más opciones&lt;/button&gt;
+&lt;button class="pr-btn pr-btn--peligro"&gt;Eliminar&lt;/button&gt;'>
+          <div class="fila">
+            <button class="pr-btn">Guardar cambios</button>
+            <button class="pr-btn pr-btn--secundario">Cancelar</button>
+            <button class="pr-btn pr-btn--fantasma">Más opciones</button>
+            <button class="pr-btn pr-btn--peligro">Eliminar</button>
+          </div>
+          <div class="fila">
+            <button class="pr-btn pr-btn--sm">Pequeño</button>
+            <button class="pr-btn">Mediano</button>
+            <button class="pr-btn pr-btn--lg">Grande</button>
+            <button class="pr-btn" disabled>Deshabilitado</button>
+            <button class="pr-btn" id="btn-carga"><span class="pr-spinner" hidden></span><span>Probar carga</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="campos" class="doc">
+        <h2>Campos de formulario</h2>
+        <p>Etiqueta siempre visible, texto de ayuda y validación en vivo con mensajes asociados por <code>aria-describedby</code>.</p>
+        <div class="demo" data-codigo='&lt;div class="pr-campo"&gt;
+  &lt;label for="email"&gt;Correo&lt;/label&gt;
+  &lt;input id="email" class="pr-input" type="email" aria-describedby="email-ayuda"&gt;
+  &lt;p id="email-ayuda" class="pr-ayuda"&gt;Te enviaremos la factura aquí.&lt;/p&gt;
+&lt;/div&gt;'>
+          <form class="formulario" id="form-demo" novalidate>
+            <div class="pr-campo">
+              <label for="f-nombre">Nombre completo</label>
+              <input id="f-nombre" class="pr-input" required minlength="3" aria-describedby="f-nombre-msg" autocomplete="name">
+              <p id="f-nombre-msg" class="pr-ayuda">Como aparece en tu documento.</p>
+            </div>
+            <div class="pr-campo">
+              <label for="f-email">Correo</label>
+              <input id="f-email" class="pr-input" type="email" required aria-describedby="f-email-msg" autocomplete="email">
+              <p id="f-email-msg" class="pr-ayuda">Te enviaremos la factura aquí.</p>
+            </div>
+            <div class="pr-campo">
+              <label for="f-plan">Plan</label>
+              <select id="f-plan" class="pr-input"><option>Gratis</option><option selected>Profesional</option><option>Empresa</option></select>
+            </div>
+            <div class="pr-campo">
+              <label for="f-nota">Comentario <span class="opcional">(opcional)</span></label>
+              <textarea id="f-nota" class="pr-input" rows="3" maxlength="140" aria-describedby="f-nota-msg"></textarea>
+              <p id="f-nota-msg" class="pr-ayuda" aria-live="polite">0 / 140</p>
+            </div>
+            <button class="pr-btn">Validar formulario</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="seleccion" class="doc">
+        <h2>Selección</h2>
+        <div class="demo" data-codigo='&lt;label class="pr-check"&gt;&lt;input type="checkbox"&gt;&lt;span&gt;Acepto los términos&lt;/span&gt;&lt;/label&gt;
+&lt;label class="pr-switch"&gt;&lt;input type="checkbox" role="switch"&gt;&lt;span&gt;Modo compacto&lt;/span&gt;&lt;/label&gt;'>
+          <div class="fila columnas">
+            <fieldset class="grupo"><legend>Casillas</legend>
+              <label class="pr-check"><input type="checkbox" checked><span>Recibir resumen semanal</span></label>
+              <label class="pr-check"><input type="checkbox"><span>Alertas de seguridad</span></label>
+              <label class="pr-check"><input type="checkbox" disabled><span>Función beta (no disponible)</span></label>
+            </fieldset>
+            <fieldset class="grupo"><legend>Opciones</legend>
+              <label class="pr-radio"><input type="radio" name="frec" checked><span>Mensual</span></label>
+              <label class="pr-radio"><input type="radio" name="frec"><span>Anual <span class="pr-insignia pr-insignia--acento">−20 %</span></span></label>
+            </fieldset>
+            <fieldset class="grupo"><legend>Interruptores</legend>
+              <label class="pr-switch"><input type="checkbox" role="switch" checked><span>Notificaciones</span></label>
+              <label class="pr-switch"><input type="checkbox" role="switch"><span>Modo compacto</span></label>
+            </fieldset>
+          </div>
+        </div>
+      </section>
+
+      <section id="retro" class="doc">
+        <h2>Alertas e insignias</h2>
+        <p>Los estados nunca dependen solo del color: siempre llevan ícono y texto.</p>
+        <div class="demo" data-codigo='&lt;div class="pr-alerta pr-alerta--exito" role="status"&gt;
+  &lt;strong&gt;Pago recibido.&lt;/strong&gt; La factura #0042 quedó saldada.
+&lt;/div&gt;'>
+          <div class="pila">
+            <div class="pr-alerta pr-alerta--info" role="status"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7h.01"/></svg><div><strong>Nueva versión disponible.</strong> Actualiza para ver los cambios.</div></div>
+            <div class="pr-alerta pr-alerta--exito" role="status"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg><div><strong>Pago recibido.</strong> La factura #0042 quedó saldada.</div></div>
+            <div class="pr-alerta pr-alerta--aviso" role="status"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg><div><strong>Tu prueba termina en 3 días.</strong> Elige un plan para no perder tus datos.</div></div>
+            <div class="pr-alerta pr-alerta--error" role="alert"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg><div><strong>No se pudo guardar.</strong> Revisa tu conexión e inténtalo de nuevo.</div></div>
+          </div>
+          <div class="fila">
+            <span class="pr-insignia">Borrador</span>
+            <span class="pr-insignia pr-insignia--acento">Nuevo</span>
+            <span class="pr-insignia pr-insignia--exito">● Activo</span>
+            <span class="pr-insignia pr-insignia--aviso">● Pendiente</span>
+            <span class="pr-insignia pr-insignia--error">● Vencido</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="navegacion" class="doc">
+        <h2>Pestañas y diálogo</h2>
+        <p>Pestañas con navegación por flechas según el patrón ARIA. Diálogo nativo con foco atrapado y cierre con Escape.</p>
+        <div class="demo" data-codigo='&lt;div class="pr-pestanas" role="tablist"&gt;
+  &lt;button role="tab" aria-selected="true"&gt;Resumen&lt;/button&gt;
+  &lt;button role="tab" aria-selected="false"&gt;Actividad&lt;/button&gt;
+&lt;/div&gt;
+&lt;dialog class="pr-dialogo"&gt;…&lt;/dialog&gt;'>
+          <div class="pr-pestanas" role="tablist" aria-label="Ejemplo de pestañas" id="tabs-demo">
+            <button role="tab" aria-selected="true" aria-controls="p-1" id="t-1">Resumen</button>
+            <button role="tab" aria-selected="false" aria-controls="p-2" id="t-2" tabindex="-1">Actividad</button>
+            <button role="tab" aria-selected="false" aria-controls="p-3" id="t-3" tabindex="-1">Ajustes</button>
+          </div>
+          <div class="pr-panel" role="tabpanel" id="p-1" aria-labelledby="t-1" tabindex="0">Ingresos del mes: <strong>$8 420</strong>. 12 facturas emitidas, 2 pendientes.</div>
+          <div class="pr-panel" role="tabpanel" id="p-2" aria-labelledby="t-2" tabindex="0" hidden>Ana aprobó la factura #0041 hace 2 horas.</div>
+          <div class="pr-panel" role="tabpanel" id="p-3" aria-labelledby="t-3" tabindex="0" hidden>Moneda: USD · Zona horaria: America/Panama.</div>
+          <div class="fila" style="margin-top:16px"><button class="pr-btn pr-btn--secundario" id="abrir-dialogo">Abrir diálogo</button></div>
+          <dialog class="pr-dialogo" id="dialogo" aria-labelledby="dlg-t">
+            <h3 id="dlg-t">¿Eliminar el proyecto?</h3>
+            <p>Se borrarán 24 tareas y sus archivos. Esta acción no se puede deshacer.</p>
+            <form method="dialog" class="fila derecha">
+              <button class="pr-btn pr-btn--fantasma" value="no">Cancelar</button>
+              <button class="pr-btn pr-btn--peligro" value="si">Eliminar proyecto</button>
+            </form>
+          </dialog>
+        </div>
+      </section>
+
+      <section id="datos" class="doc">
+        <h2>Tabla de datos</h2>
+        <p>Ordenable por columna, números alineados a la derecha con cifras tabulares y estado con insignia.</p>
+        <div class="demo">
+          <div class="pr-tabla-envoltura">
+            <table class="pr-tabla" id="tabla">
+              <thead><tr><th scope="col"><button data-orden="cliente">Cliente</button></th><th scope="col"><button data-orden="fecha">Fecha</button></th><th scope="col" class="num"><button data-orden="monto">Monto</button></th><th scope="col">Estado</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="pie">Prisma UI es un sistema de diseño creado como proyecto de portafolio por <a href="https://fp-507.github.io/Portafolio/">Fidel Pizart</a>.</footer>
+  </div>
+
+  <div class="pr-toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="docs.js"></script>
+</body>
+</html>
