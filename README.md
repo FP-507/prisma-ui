@@ -37,3 +37,7 @@ index.html   documentación
 ## Accesibilidad
 
 Foco visible con anillo de dos capas en todos los controles, etiquetas siempre visibles, roles y estados ARIA, soporte de `prefers-reduced-motion`, y preferencias de tema guardadas localmente.
+
+## Para retomar el proyecto
+
+Arquitectura, decisiones técnicas, cómo extenderlo y pendientes: [DESARROLLO.md](DESARROLLO.md).
