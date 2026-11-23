@@ -4,6 +4,10 @@ Sistema de diseño con su sitio de documentación: **tokens de color en OKLCH**,
 
 **[Ver la documentación en vivo →](https://fp-507.github.io/prisma-ui/)**
 
+![Prisma UI: al mover el tono se recalculan las escalas de color y su contraste; luego tema oscuro y componentes](media/demo.gif)
+
+*Al mover el tono, las escalas se recalculan con su contraste WCAG; después, el tema oscuro y los componentes.*
+
 ## Qué lo hace distinto
 
 - **Color perceptual (OKLCH)**: las escalas de acento y neutro se generan a partir de un único tono. Al moverlo, la luminosidad de cada paso se mantiene, así que el contraste se conserva en cualquier color de marca.
